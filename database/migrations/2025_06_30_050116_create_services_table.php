@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('graphic_product_types', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique()->comment('Name of the product\'s graphic types');
             $table->timestamp('created_at')->useCurrent()->comment('Timestamp when the record was created');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('graphic_product_types');
+        Schema::dropIfExists('services');
     }
 };

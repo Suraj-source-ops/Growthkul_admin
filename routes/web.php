@@ -85,35 +85,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::match(['get', 'post'], '/notification/fetch', [ProductHistoryController::class, 'fetchNotification'])->name('notification.fetch');
     Route::post('/notification/read', [ProductHistoryController::class, 'markAsRead'])->name('notification.read');
 
-
-    #product tracking
-    Route::match(['get', 'post'], 'product/product-tracking', [ProductTrackingController::class, 'productTrackingLists'])->name('product.track.lists');
-    Route::match(['get', 'post'], 'product/{productId}/product-tracking', [ProductTrackingController::class, 'productTracking'])->name('product.stages');
-    Route::get('change-stage-status/{stageId}', [ProductTrackingController::class, 'changeStatus'])->name('change.stage.status');
-    Route::post('update-stage-estimate-date', [ProductTrackingController::class, 'updateStageEstimateDate'])->name('update.stage.estimate.date');
-    Route::post('update-stage-notes', [ProductTrackingController::class, 'updateNotes'])->name('update.stage.notes');
-    Route::post('stage-file-upload', [ProductTrackingController::class, 'uploadStageFile'])->name('stage.file.upload');
-
     #setting
-    #Product's Graphic Types
-    Route::match(['get', 'post'], 'graphic-product-type', [SettingHomeController::class, 'graphicProductTypes'])->name('graphic.product.types');
-    Route::get('delete-graphic-type/{id}', [SettingHomeController::class, 'deleteGraphicProductType'])->name('delete.graphic.type');
-    Route::post('add-graphic-product', [SettingHomeController::class, 'addGraphicProductType'])->name('add.graphic.product');
+    #Services
+    Route::match(['get', 'post'], 'service-list', [SettingHomeController::class, 'serviceList'])->name('services.list');
+    Route::get('delete-service/{id}', [SettingHomeController::class, 'deleteServiceName'])->name('delete.service.name');
+    Route::post('add-services', [SettingHomeController::class, 'addServiceName'])->name('add.service.name');
 
     #master stages
     Route::match(['get', 'post'], 'master-stages', [SettingHomeController::class, 'masterStages'])->name('master.stages');
     Route::post('add-stages', [SettingHomeController::class, 'addStages'])->name('add.master.stage');
     Route::get('delete-stages/{id}', [SettingHomeController::class, 'deleteStages'])->name('delete.stages');
     Route::post('change-sequence', [SettingHomeController::class, 'changeSequence'])->name('change.stage.sequence');
-
-
-    #All Task Section
-    Route::group(['prefix' => 'tasks'], function () {
-        Route::match(['get', 'post'], '', [TaskController::class, 'allTaskList'])->name('tasks');
-        Route::post('assign-task', [TaskController::class, 'assignTaskProductToMember'])->name('assign.task.product.member');
-        Route::get('product/{slug}/product-details', [TaskController::class, 'taskProductDetails'])->name('view.tasks.product.details');
-        Route::match(['get', 'post'], 'my-tasks', [TaskController::class, 'allTaskList'])->name('mytasks');
-    });
 
     #error page permission spatie
     Route::get('errors', fn() => view('errors.permission-error-page'));

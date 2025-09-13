@@ -1468,7 +1468,7 @@ a.ui.label {
 .cross-btn {
     width: 22px;
     height: 22px;
-    background-color: #7d3900 !important;
+    background-color: red !important;
     display: flex;
     justify-content: center;
     align-items: center;
