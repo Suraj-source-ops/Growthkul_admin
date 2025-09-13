@@ -13,79 +13,13 @@ use Yajra\DataTables\Facades\DataTables;
 
 class HistoryController extends Controller
 {
-    #History lists datatable
-    public function productHistory(Request $request)
-    {
-        try {
-            if ($request->ajax()) {
-                $history = History::with(['user'])->where(['product_id' => $request->productId])
-                    ->where(function ($query) {
-                        $query->whereNull('assign_to')
-                            ->orWhere('assign_to', '');
-                    })
-                    ->orderBy('id', 'desc');
-                return DataTables::of($history)
-                    ->addIndexColumn()
-                    ->editColumn('name', function ($row) {
-                        return $row->user->name ?? 'NA';
-                    })
-                    ->editColumn('created_at', function ($row) {
-                        return $row->created_at->format('d-M-Y h:i A');
-                    })
-                    ->make(true);
-            }
-            return view('products.viewpartials.commentAndHistory.history.history');
-        } catch (Exception $e) {
-            Log::channel('exception')->error('productHistory: ' . $e->getMessage());
-            return redirect()->back()->with(['message' => 'Failed to fetch product history', 'alert-type' => 'error']);
-        }
-    }
-
-    #Task History
-    public function taskProductHistory(Request $request)
-    {
-        try {
-            if ($request->ajax()) {
-                $history = History::with(['user'])->where(['product_id' => $request->productId])
-                    ->where(function ($query) {
-                        $query->whereNull('assign_to')
-                            ->orWhere('assign_to', '');
-                    })
-                    ->orderBy('id', 'desc');
-                return DataTables::of($history)
-                    ->addIndexColumn()
-                    ->editColumn('name', function ($row) {
-                        return $row->user->name ?? 'NA';
-                    })
-                    ->editColumn('created_at', function ($row) {
-                        return $row->created_at->format('d-M-Y h:i A');
-                    })
-                    ->make(true);
-            }
-            return view('tasks.viewpartials.commentAndHistory.history.history');
-        } catch (Exception $e) {
-            Log::channel('exception')->error('productHistory: ' . $e->getMessage());
-            return redirect()->back()->with(['message' => 'Failed to fetch product history', 'alert-type' => 'error']);
-        }
-    }
-
     #fetch notification
     public function fetchNotification()
     {
         try {
-            $assignedProduct = ProductUser::where('user_id', Auth::user()->id)
-                ->pluck('product_id')
-                ->toArray();
-
-            $notifications = History::where(function ($query) use ($assignedProduct) {
-                $query->whereIn('product_id', $assignedProduct);
-            })->orWhere(function ($query) {
-                $query->where('assign_to', Auth::user()->id);
-            })->latest();
-
-            return DataTables::of($notifications)
+            return DataTables::of($notifications = [])
                 ->editColumn('note', function ($notification) {
-                    return view('components.notification-item', ['notification' => $notification])->render();
+                    return view('components.notification-item', ['notification' => [$notification]])->render();
                 })
                 ->rawColumns(['note'])
                 ->make(true);

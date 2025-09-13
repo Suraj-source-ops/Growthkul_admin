@@ -100,6 +100,19 @@
                                 </div>
                             </div>
                             <li class="">
+                                <a href="{{ route('enquiry') }}"
+                                    class="{{ Route::is('enquiry') ? ' active' : '' }}">
+                                    <span class="sidebar-border"></span>
+                                    <img class="show_icon"
+                                        src="{{ url('/assets/images/sidebar-icon/client-hover.png') }}"
+                                        alt="Dashboard-icon" />
+                                    <img class="sidebar-hover-icon"
+                                        src="{{ url('/assets/images/sidebar-icon/client-hover.png') }}"
+                                        alt="Dashboard-icon" />
+                                    Enquiry
+                                </a>
+                            </li>
+                            <li class="">
                                 <a href="{{ route('clients') }}"
                                     class="{{ Route::is('clients') || Route::is('add.client') || Route::is('client.details') ? ' active' : '' }}">
                                     <span class="sidebar-border"></span>
@@ -112,39 +125,6 @@
                                     Client Details
                                 </a>
                             </li>
-                            <div class="car">
-                                <li class="card_drop" id="Settings">
-                                    <a href="#" class="btn btn-header-link" data-toggle="collapse"
-                                        data-target="#settingsDrop" aria-expanded="true" aria-controls="settingsDrop">
-                                        <span class="sidebar-border"></span>
-                                        <img class="show_icon"
-                                            src="{{ url('/assets/images/sidebar-icon/product-hover.png') }}"
-                                            alt="settings-icon" />
-                                        <img class="sidebar-hover-icon"
-                                            src="{{ url('/assets/images/sidebar-icon/product-hover.png') }}"
-                                            alt="Dashboard-icon" />
-                                        Products
-                                    </a>
-                                </li>
-
-                                <div id="settingsDrop" class="collapse" aria-labelledby="Settings" data-parent="#faq">
-                                    <div class="card-body sidebar_drop_body">
-                                            <li class="">
-                                                <a href="{{ route('product.lists') }}" id="settingListing8"
-                                                    class="{{ route::is('product.lists') ? ' active' : '' }}">
-                                                    <span class="sidebar-border2"></span>
-                                                    <img class="right-icon-view"
-                                                        src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
-                                                        alt="sidebar-icon" />
-                                                    <img class="right-icon-view-hover"
-                                                        src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
-                                                        alt="sidebar-icon" />
-                                                    Products
-                                                </a>
-                                            </li>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="car">
                                 <li class="card_drop" id="Settings2">
                                     <a href="#" class="btn btn-header-link" data-toggle="collapse"

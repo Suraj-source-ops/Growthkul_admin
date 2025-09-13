@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Oswald');
 
         body {
-            background-color: #ccad98;
+            background-color: #5F4CDD;
             width: 98%;
             text-align: center;
             color: white;
@@ -48,7 +48,7 @@
             background: #fff;
             border-radius: 20px;
             border: none;
-            color: #ccad98;
+            color: #5F4CDD;
             font-size: 18px;
             font-weight: 500;
             cursor: pointer;

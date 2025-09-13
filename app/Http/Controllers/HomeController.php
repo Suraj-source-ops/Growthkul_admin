@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Enquiry;
 use App\Models\Services;
 use Illuminate\Support\Facades\Log;
 
@@ -17,8 +18,10 @@ class HomeController extends Controller
     {
         try {
             $totalServices = Services::count();
+            $totalEnquiry = Enquiry::count();
             return view('dashboard.dashboard', [
                 'services' => $totalServices ?? 0,
+                'enquiries' => $totalEnquiry ?? 0,
             ]);
         } catch (Exception $e) {
             Log::channel('exception')->error('dashboard: ' . $e->getMessage());

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Documents\DocumentController;
+use App\Http\Controllers\Enquiry\EnquiryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Login\LoginController;
 use App\Http\Controllers\Product\CommentController as ProductCommentController;
@@ -51,6 +52,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('member/{id}/edit-member-details', [TeamController::class, 'editMemberDetails'])->name('edit.member.details');
     Route::post('member/{id}/update-member-details', [TeamController::class, 'updateMemberDetails'])->name('update.member.details');
 
+    #enquiry
+    Route::match(['get', 'post'], 'enquiry', [EnquiryController::class, 'enquiryList'])->name('enquiry');
+
     #client
     Route::match(['get', 'post'], 'clients', [ClientController::class, 'clients'])->name('clients');
     Route::get('add-clients', [ClientController::class, 'addClients'])->name('add.client');
@@ -60,27 +64,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('update-clients-details/{id}', [ClientController::class, 'updateClientsDetails'])->name('update.client.details');
     Route::get('clients-status/{id}', [ClientController::class, 'activeOrInactiveClient'])->name('active.inactive.client');
 
-    #product
-    Route::match(['get', 'post'], 'products', [ProductController::class, 'productLists'])->name('product.lists');
-    Route::get('client/{clientid}/add-product', [ProductController::class, 'addProductView'])->name('add.product');
-    Route::post('store-product', [ProductController::class, 'storeProduct'])->name('store.product');
-    Route::get('product/{slug}/edit-product-details', [ProductController::class, 'editProductDetails'])->name('edit.product.details');
-    Route::get('product/{slug}/product-details', [ProductController::class, 'productDetails'])->name('view.product.details');
-    Route::post('assign-product', [ProductController::class, 'assignProductToMember'])->name('assign.product.member');
-    Route::post('change-product-status', [ProductController::class, 'changeProductStatus'])->name('change.product.status');
-    Route::get('delete-product/{productId}', [ProductController::class, 'deleteProduct'])->name('delete.product');
-    Route::post('update-due-date', [ProductController::class, 'updateDueDate'])->name('update.product.duedate');
-    Route::get('view-file/{docId}', [ProductDocumentController::class, 'viewFile'])->name('view.product.file');
-    Route::get('delete-file/{docId}', [ProductDocumentController::class, 'deleteFile'])->name('delete.product.file');
-    Route::post('product/{slug}/update-product-details/{type}', [ProductController::class, 'updateProduct'])->name('update.product.details');
-
-    #product comments and history
-    Route::post('post-comment', [ProductCommentController::class, 'postComment'])->name('post.comment');
-    Route::get('view-comment-file/{docId}', [ProductDocumentController::class, 'viewCommentFile'])->name('view.comment.file');
-    #history
-    // Route::get('view-history-section', [ProductHistoryController::class, 'viewHistorySection'])->name('view.history.section');
-    Route::match(['get', 'post'], 'history', [ProductHistoryController::class, 'productHistory'])->name('product.history.list');
-    Route::match(['get', 'post'], 'task-history', [ProductHistoryController::class, 'taskProductHistory'])->name('task.product.history.list');
     #notification
     Route::match(['get', 'post'], '/notification/fetch', [ProductHistoryController::class, 'fetchNotification'])->name('notification.fetch');
     Route::post('/notification/read', [ProductHistoryController::class, 'markAsRead'])->name('notification.read');
@@ -91,13 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('delete-service/{id}', [SettingHomeController::class, 'deleteServiceName'])->name('delete.service.name');
     Route::post('add-services', [SettingHomeController::class, 'addServiceName'])->name('add.service.name');
 
-    #master stages
-    Route::match(['get', 'post'], 'master-stages', [SettingHomeController::class, 'masterStages'])->name('master.stages');
-    Route::post('add-stages', [SettingHomeController::class, 'addStages'])->name('add.master.stage');
-    Route::get('delete-stages/{id}', [SettingHomeController::class, 'deleteStages'])->name('delete.stages');
-    Route::post('change-sequence', [SettingHomeController::class, 'changeSequence'])->name('change.stage.sequence');
-
-    #error page permission spatie
+    #error page permission 
     Route::get('errors', fn() => view('errors.permission-error-page'));
 });
 Route::get('product-change', fn() => view('Mail.product-change-notification-template'));

@@ -21,7 +21,7 @@
                             <table class="table table-bordered table-custom-css-box" id="service-table">
                                 <thead>
                                     <tr>
-                                        <th style="width:7%" scope="col">S. No.</th>
+                                        <th style="width:10%" scope="col">S. No.</th>
                                         <th style="width:85%" scope="col">Service Name</th>
                                         <th style="width:8%" scope="col">Action</th>
                                     </tr>

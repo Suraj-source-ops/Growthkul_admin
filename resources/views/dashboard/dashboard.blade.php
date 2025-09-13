@@ -50,8 +50,8 @@
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="dash-content-box">
                             <div class="clients-box">
-                                <a href="">
-                                    <h3>63463</h3>
+                                <a href="{{ route('enquiry') }}">
+                                    <h3>{{ $enquiries }}</h3>
                                 </a>
                             </div>
                             <p>Total Queries</p>
