@@ -64,10 +64,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('update-clients-details/{id}', [ClientController::class, 'updateClientsDetails'])->name('update.client.details');
     Route::get('clients-status/{id}', [ClientController::class, 'activeOrInactiveClient'])->name('active.inactive.client');
 
-    #notification
-    Route::match(['get', 'post'], '/notification/fetch', [ProductHistoryController::class, 'fetchNotification'])->name('notification.fetch');
-    Route::post('/notification/read', [ProductHistoryController::class, 'markAsRead'])->name('notification.read');
-
     #setting
     #Services
     Route::match(['get', 'post'], 'service-list', [SettingHomeController::class, 'serviceList'])->name('services.list');
