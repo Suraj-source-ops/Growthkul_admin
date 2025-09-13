@@ -37,7 +37,7 @@ class ProductChangeNotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Letune - Product Change Notification',
+            subject: 'Growthkul - Product Change Notification',
         );
     }
 

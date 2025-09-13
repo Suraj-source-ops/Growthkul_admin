@@ -33,7 +33,7 @@ class ProductAssignedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Letune - Product Assigned Mail',
+            subject: 'Growthkul - Product Assigned Mail',
         );
     }
 

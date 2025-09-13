@@ -7,7 +7,7 @@
             <div class="right-notification-text">
                 <h4>{{ ucfirst($notification->action) ?? '' }}
                     @if ($notification->status == 0)
-                    <span style="float: right; color:#b98f6d; font-size:12px"><i class="fa fa-circle"></i></span>
+                    <span style="float: right; color:#5646c4; font-size:12px"><i class="fa fa-circle"></i></span>
                     @endif
                 </h4>
                 <p>{{ $notification->note ?? '' }}</p>

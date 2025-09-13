@@ -7,13 +7,13 @@
         <div class="sidebar-box">
             <div class="top-content">
                 <div class="header_left_box">
-                    <img class="logo" src="{{ url('/assets/images/logo.png') }}" alt="Website Logo" />
+                    <img class="logo" src="{{ url('/assets/images/logo.webp') }}" alt="Website Logo" />
                 </div>
                 {{-- @can('view-dashboard-sidebar') --}}
                     <li class="">
                         <a href="{{ route('dashboard') }}" class="{{ Route::is('dashboard') ? 'active' : '' }}">
                             <span class="sidebar-border"></span>
-                            <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/dashboard.png') }}"
+                            <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/dashboard-hover.png') }}"
                                 alt="Dashboard-icon" />
                             <img class="sidebar-hover-icon"
                                 src="{{ url('/assets/images/sidebar-icon/dashboard-hover.png') }}" alt="Dashboard-icon" />
@@ -29,7 +29,7 @@
                                     <a class="btn btn-header-link" data-toggle="collapse" data-target="#Reports"
                                         aria-expanded="true" aria-controls="Reports" id="rep_a">
                                         <span class="sidebar-border"></span>
-                                        <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/team-lead.png') }}"
+                                        <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/team-lead-hover.png') }}"
                                             alt="Reports-icon" />
                                         <img class="sidebar-hover-icon"
                                             src="{{ url('/assets/images/sidebar-icon/team-lead-hover.png') }}"
@@ -45,7 +45,7 @@
                                                     class="{{ Route::is('teams') || Route::is('add.teams') ? 'active' : '' }}">
                                                     <span class="sidebar-border2"></span>
                                                     <img class="right-icon-view"
-                                                        src="{{ asset('/assets/images/sidebar-icon/right-icon.png') }}"
+                                                        src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
                                                         alt="sidebar-icon" />
                                                     <img class="right-icon-view-hover"
                                                         src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
@@ -60,7 +60,7 @@
                                                     class="{{ Route::is('members') || Route::is('add.members') ? 'active' : '' }}">
                                                     <span class="sidebar-border2"></span>
                                                     <img class="right-icon-view"
-                                                        src="{{ asset('/assets/images/sidebar-icon/right-icon.png') }}"
+                                                        src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
                                                         alt="sidebar-icon" />
                                                     <img class="right-icon-view-hover"
                                                         src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
@@ -78,7 +78,7 @@
                                 <a href="{{ route('clients') }}"
                                     class="{{ Route::is('clients') || Route::is('add.client') || Route::is('client.details') ? ' active' : '' }}">
                                     <span class="sidebar-border"></span>
-                                    <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/client.png') }}"
+                                    <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/client-hover.png') }}"
                                         alt="Dashboard-icon" />
                                     <img class="sidebar-hover-icon"
                                         src="{{ url('/assets/images/sidebar-icon/client-hover.png') }}"
@@ -93,7 +93,7 @@
                                     <a href="#" class="btn btn-header-link" data-toggle="collapse"
                                         data-target="#settingsDrop" aria-expanded="true" aria-controls="settingsDrop">
                                         <span class="sidebar-border"></span>
-                                        <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/product.png') }}"
+                                        <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/product-hover.png') }}"
                                             alt="settings-icon" />
                                         <img class="sidebar-hover-icon"
                                             src="{{ url('/assets/images/sidebar-icon/product-hover.png') }}"
@@ -110,7 +110,7 @@
                                                     class="{{ route::is('product.lists') ? ' active' : '' }}">
                                                     <span class="sidebar-border2"></span>
                                                     <img class="right-icon-view"
-                                                        src="{{ asset('/assets/images/sidebar-icon/right-icon.png') }}"
+                                                        src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
                                                         alt="sidebar-icon" />
                                                     <img class="right-icon-view-hover"
                                                         src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
@@ -125,7 +125,7 @@
                                                     class="{{ route::is('product.track.lists') ? ' active' : '' }}">
                                                     <span class="sidebar-border2"></span>
                                                     <img class="right-icon-view"
-                                                        src="{{ asset('/assets/images/sidebar-icon/right-icon.png') }}"
+                                                        src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
                                                         alt="sidebar-icon" />
                                                     <img class="right-icon-view-hover"
                                                         src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
@@ -144,7 +144,7 @@
                                     <a href="#" class="btn btn-header-link" data-toggle="collapse"
                                         data-target="#taskDrop" aria-expanded="true" aria-controls="taskDrop">
                                         <span class="sidebar-border"></span>
-                                        <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/task.png') }}"
+                                        <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/task-hover.png') }}"
                                             alt="Dashboard-icon" />
                                         <img class="sidebar-hover-icon"
                                             src="{{ url('/assets/images/sidebar-icon/task-hover.png') }}"
@@ -161,7 +161,7 @@
                                                     class="{{ route::is('tasks') ? 'active' : '' }}">
                                                     <span class="sidebar-border2"></span>
                                                     <img class="right-icon-view"
-                                                        src="{{ asset('/assets/images/sidebar-icon/right-icon.png') }}"
+                                                        src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
                                                         alt="sidebar-icon" />
                                                     <img class="right-icon-view-hover"
                                                         src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
@@ -177,7 +177,7 @@
                                                         class="{{ route::is('mytasks') ? 'active' : '' }}">
                                                         <span class="sidebar-border2"></span>
                                                         <img class="right-icon-view"
-                                                            src="{{ asset('/assets/images/sidebar-icon/right-icon.png') }}"
+                                                            src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
                                                             alt="sidebar-icon" />
                                                         <img class="right-icon-view-hover"
                                                             src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
@@ -197,7 +197,7 @@
                                     <a href="#" class="btn btn-header-link" data-toggle="collapse"
                                         data-target="#settingsDrop2" aria-expanded="true" aria-controls="settingsDrop2">
                                         <span class="sidebar-border"></span>
-                                        <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/role.png') }}"
+                                        <img class="show_icon" src="{{ url('/assets/images/sidebar-icon/role-hover.png') }}"
                                             alt="Dashboard-icon" />
                                         <img class="sidebar-hover-icon"
                                             src="{{ url('/assets/images/sidebar-icon/role-hover.png') }}"
@@ -213,7 +213,7 @@
                                                 class="{{ route::is('roles') ? ' active' : '' }}">
                                                 <span class="sidebar-border2"></span>
                                                 <img class="right-icon-view"
-                                                    src="{{ asset('/assets/images/sidebar-icon/right-icon.png') }}"
+                                                    src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
                                                     alt="sidebar-icon" />
                                                 <img class="right-icon-view-hover"
                                                     src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
@@ -232,7 +232,7 @@
                                         data-target="#settingsDrop3" aria-expanded="true" aria-controls="settingsDrop3">
                                         <span class="sidebar-border"></span>
                                         <img class="right-icon-view"
-                                            src="{{ asset('/assets/images/sidebar-icon/setting.png') }}"
+                                            src="{{ asset('/assets/images/sidebar-icon/setting-hover.png') }}"
                                             alt="sidebar-icon" />
                                         <img class="right-icon-view-hover"
                                             src="{{ asset('/assets/images/sidebar-icon/setting-hover.png') }}"
@@ -249,7 +249,7 @@
                                                     class="{{ Route::is('graphic.product.types') ? ' active' : '' }}">
                                                     <span class="sidebar-border2"></span>
                                                     <img class="right-icon-view"
-                                                        src="{{ asset('/assets/images/sidebar-icon/right-icon.png') }}"
+                                                        src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
                                                         alt="sidebar-icon" />
                                                     <img class="right-icon-view-hover"
                                                         src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
@@ -264,7 +264,7 @@
                                                     class="{{ Route::is('master.stages') ? ' active' : '' }}">
                                                     <span class="sidebar-border2"></span>
                                                     <img class="right-icon-view"
-                                                        src="{{ asset('/assets/images/sidebar-icon/right-icon.png') }}"
+                                                        src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
                                                         alt="sidebar-icon" />
                                                     <img class="right-icon-view-hover"
                                                         src="{{ asset('/assets/images/sidebar-icon/right-hover.png') }}"
@@ -284,7 +284,7 @@
                 <li class="">
                     <a href="{{ route('logout') }}" class="logout-btn">
                         <span class="sidebar-border"></span>
-                        <img class="right-icon-view" src="{{ asset('/assets/images/sidebar-icon/logout.png') }}"
+                        <img class="right-icon-view" src="{{ asset('/assets/images/sidebar-icon/logout-hover.png') }}"
                             alt="sidebar-icon" />
                         <img class="right-icon-view-hover"
                             src="{{ asset('/assets/images/sidebar-icon/logout-hover.png') }}" alt="sidebar-icon" />

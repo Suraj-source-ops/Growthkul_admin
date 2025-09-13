@@ -127,7 +127,7 @@ select.product_status option {
 }
 
 .select2-results__option--highlighted {
-    background-color: #b98f6d !important;
+    background-color: #5646c4 !important;
     color: #333;
 }
 /* Make pagination horizontal */
@@ -156,7 +156,7 @@ select.product_status option {
 }
 
 .badge{
-    background-color: #FFFFF6;
+    background-color: #f4f7ff6;
     border-radius: 25px !important;
     padding: 4px 10px 4px 10px !important;
     margin: 4px;

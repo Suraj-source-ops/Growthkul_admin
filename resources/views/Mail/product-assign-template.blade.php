@@ -52,13 +52,13 @@
                                 <tr>
                                     <td>
                                         <a href="{{env('APP_URL')}}"
-                                            style="background:#b98f6d;text-decoration:none !important; font-weight:500; margin-top:10px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;">View
+                                            style="background:#5646c4;text-decoration:none !important; font-weight:500; margin-top:10px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;">View
                                             Product</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p>Thanks,<br>Letune Support</p>
+                                        <p>Thanks,<br>Growthkul Support</p>
                                     </td>
                                 </tr>
                             </table>
@@ -73,7 +73,7 @@
         <tr>
             <td style="text-align:center;">
                 <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">
-                    &copy; <strong>www.letune.gomilestonetech.com</strong></p>
+                    &copy; <strong>www.Growthkul.com</strong></p>
             </td>
         </tr>
         <tr>

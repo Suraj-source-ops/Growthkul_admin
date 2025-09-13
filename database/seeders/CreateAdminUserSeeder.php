@@ -19,7 +19,7 @@ class CreateAdminUserSeeder extends Seeder
         $user = User::create([
             'name' => config('global.username'), 
             'email' => config('global.useremail'),
-            'password' => Hash::make('Letune@2025')
+            'password' => Hash::make('Growthkul@2025')
         ]);
         $role = Role::create(['name' => 'Admin']);
         $permissions = Permission::pluck('id','id')->all();

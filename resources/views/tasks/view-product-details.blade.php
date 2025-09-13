@@ -164,7 +164,7 @@
                     orderable: false,
                     searchable: false,
                      render: function(data, type, row) {
-                        return `<button class="btn btn-sm view-json" style="background-color:#b98f6d;color:#fff;" data-json='${JSON.stringify(row.changes)}'>view</button>`;
+                        return `<button class="btn btn-sm view-json" style="background-color:#5646c4;color:#fff;" data-json='${JSON.stringify(row.changes)}'>view</button>`;
                     }
                 },
             ],

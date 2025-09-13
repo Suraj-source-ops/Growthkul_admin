@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'username' => 'Letune Admin',
-    'useremail' => 'superadmin@letuneunitedtrades.com',
+    'username' => 'Growthkul Admin',
+    'useremail' => 'superadmin@growthkul.com',
 ];

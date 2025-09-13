@@ -27,7 +27,7 @@ class ResetPasswordMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Reset Password -Letune',
+            subject: 'Reset Password -Growthkul',
         );
     }
 

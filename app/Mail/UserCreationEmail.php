@@ -33,7 +33,7 @@ class UserCreationEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Welcome ' . $this->name . ' - Letune',
+            subject: 'Welcome ' . $this->name . ' - Growthkul',
         );
     }
 
