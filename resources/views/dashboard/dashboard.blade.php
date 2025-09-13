@@ -17,19 +17,16 @@
             </div>
             <div class="number-box">
                 <div class="row">
-                    {{-- @can('view-total-clients-dashboard') --}}
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="dash-content-box">
                             <div class="clients-box">
-                                <a href="">
-                                    <h3>11111</h3>
+                                <a href="{{ route('services.list') }}">
+                                    <h3>{{ $services }}</h3>
                                 </a>
                             </div>
                             <p>Total Services</p>
                         </div>
                     </div>
-                    {{-- @endcan --}}
-                    {{-- @can('view-total-products-dashboard') --}}
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="dash-content-box">
                             <div class="clients-box">
@@ -40,8 +37,6 @@
                             <p>Total Blogs</p>
                         </div>
                     </div>
-                    {{-- @endcan --}}
-                    {{-- @can('view-pending-products-dashboard') --}}
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="dash-content-box">
                             <div class="clients-box">
@@ -52,19 +47,16 @@
                             <p>Total Projects</p>
                         </div>
                     </div>
-                    {{-- @endcan --}}
-                    {{-- @can('view-complete-products-dashboard') --}}
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="dash-content-box">
                             <div class="clients-box">
-                                <a href="{{ route('product.lists') }}">
-                                    <h3>{{ $completedCount }}</h3>
+                                <a href="">
+                                    <h3>63463</h3>
                                 </a>
                             </div>
                             <p>Total Queries</p>
                         </div>
                     </div>
-                    {{-- @endcan --}}
                 </div>
             </div>
         </div>
