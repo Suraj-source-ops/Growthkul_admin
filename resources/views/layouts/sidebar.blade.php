@@ -9,7 +9,6 @@
                 <div class="header_left_box">
                     <img class="logo" src="{{ url('/assets/images/logo.png') }}" alt="Website Logo" />
                 </div>
-                {{-- @can('view-dashboard-sidebar') --}}
                 <li class="">
                     <a href="{{ route('dashboard') }}" class="{{ Route::is('dashboard') ? 'active' : '' }}">
                         <span class="sidebar-border"></span>
@@ -20,10 +19,8 @@
                         Dashboard
                     </a>
                 </li>
-                {{-- @endcan --}}
                 <div id="main">
                     <div class="accordion" id="faq">
-                        {{-- @can('view-team-details-section-sidebar') --}}
                             <div class="car">
                                 <li class="card_drop" id="ReportTab">
                                     <a class="btn btn-header-link" data-toggle="collapse" data-target="#Reports"
@@ -40,7 +37,6 @@
                                 </li>
                                 <div id="Reports" class="collapse" aria-labelledby="ReportTab" data-parent="#faq">
                                     <div class="card-body sidebar_drop_body">
-                                        {{-- @can('view-team-sidebar') --}}
                                             <li class="">
                                                 <a href="{{ route('teams') }}"
                                                     class="{{ Route::is('teams') || Route::is('add.teams') ? 'active' : '' }}">
@@ -54,8 +50,6 @@
                                                     Team
                                                 </a>
                                             </li>
-                                        {{-- @endcan --}}
-                                        {{-- @can('view-members-sidebar') --}}
                                             <li class="">
                                                 <a href="{{ route('members') }}" id="reportListing2"
                                                     class="{{ Route::is('members') || Route::is('add.members') ? 'active' : '' }}">
@@ -69,13 +63,9 @@
                                                     Members
                                                 </a>
                                             </li>
-                                        {{-- @endcan --}}
                                     </div>
                                 </div>
                             </div>
-                        {{-- @endcan --}}
-                        
-                        {{-- @can('view-settings-section-sidebar') --}}
                             <div class="car">
                                 <li class="card_drop" id="Settings3">
                                     <a href="#" class="btn btn-header-link" data-toggle="collapse"
@@ -93,7 +83,6 @@
 
                                 <div id="settingsDrop3" class="collapse" aria-labelledby="Settings3" data-parent="#faq">
                                     <div class="card-body sidebar_drop_body">
-                                        {{-- @can('view-graphic-product-type-sidebar') --}}
                                             <li class="">
                                                 <a href="{{ route('services.list') }}" id="settingListing8"
                                                     class="{{ Route::is('services.list') ? ' active' : '' }}">
@@ -107,12 +96,9 @@
                                                     Service Details
                                                 </a>
                                             </li>
-                                        {{-- @endcan --}}
                                     </div>
                                 </div>
                             </div>
-                        {{-- @endcan --}}
-                        {{-- @can('view-client-details-sidebar') --}}
                             <li class="">
                                 <a href="{{ route('clients') }}"
                                     class="{{ Route::is('clients') || Route::is('add.client') || Route::is('client.details') ? ' active' : '' }}">
@@ -126,8 +112,6 @@
                                     Client Details
                                 </a>
                             </li>
-                        {{-- @endcan --}}
-                        {{-- @can('view-products-details-section-sidebar') --}}
                             <div class="car">
                                 <li class="card_drop" id="Settings">
                                     <a href="#" class="btn btn-header-link" data-toggle="collapse"
@@ -145,7 +129,6 @@
 
                                 <div id="settingsDrop" class="collapse" aria-labelledby="Settings" data-parent="#faq">
                                     <div class="card-body sidebar_drop_body">
-                                        {{-- @can('view-products-sidebar') --}}
                                             <li class="">
                                                 <a href="{{ route('product.lists') }}" id="settingListing8"
                                                     class="{{ route::is('product.lists') ? ' active' : '' }}">
@@ -159,12 +142,9 @@
                                                     Products
                                                 </a>
                                             </li>
-                                        {{-- @endcan --}}
                                     </div>
                                 </div>
                             </div>
-                        {{-- @endcan --}}
-                        {{-- @can('view-role-and-permission-section-sidebar') --}}
                             <div class="car">
                                 <li class="card_drop" id="Settings2">
                                     <a href="#" class="btn btn-header-link" data-toggle="collapse"
@@ -198,7 +178,6 @@
                                     </div>
                                 </div>
                             </div>
-                        {{-- @endcan --}}
                     </div>
                 </div>
             </div>
