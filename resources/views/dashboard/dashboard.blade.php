@@ -70,7 +70,7 @@
                                     <a href="{{ route('clients') }}">
                                         <h3>{{ $clients }}</h3>
                                     </a>
-                                    <img class="" src="{{ asset('/assets/images/total-client.png') }}" alt="back-icon" />
+                                    {{-- <img class="" src="{{ asset('/assets/images/total-client.png') }}" alt="back-icon" /> --}}
                                 </div>
                                 <p>Total Clients</p>
                             </div>
@@ -83,8 +83,8 @@
                                     <a href="{{ route('product.lists') }}">
                                         <h3>{{ $products }}</h3>
                                     </a>
-                                    <img class="" src="{{ asset('/assets/images/total-product.png') }}"
-                                        alt="back-icon" />
+                                    {{-- <img class="" src="{{ asset('/assets/images/total-product.png') }}"
+                                        alt="back-icon" /> --}}
                                 </div>
                                 <p>Total Products</p>
                             </div>
@@ -97,8 +97,8 @@
                                     <a href="{{ route('product.lists') }}">
                                         <h3>{{ $inProgressCount }}</h3>
                                     </a>
-                                    <img class="" src="{{ asset('/assets/images/pending-products.png') }}"
-                                        alt="back-icon" />
+                                    {{-- <img class="" src="{{ asset('/assets/images/pending-products.png') }}"
+                                        alt="back-icon" /> --}}
                                 </div>
                                 <p>In Progress Products</p>
                             </div>
@@ -111,8 +111,8 @@
                                     <a href="{{ route('product.lists') }}">
                                         <h3>{{ $completedCount }}</h3>
                                     </a>
-                                    <img class="" src="{{ asset('/assets/images/complete-products.png') }}"
-                                        alt="back-icon" />
+                                    {{-- <img class="" src="{{ asset('/assets/images/complete-products.png') }}"
+                                        alt="back-icon" /> --}}
                                 </div>
                                 <p>Complete Products</p>
                             </div>

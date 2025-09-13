@@ -7,7 +7,7 @@
         <div class="sidebar-box">
             <div class="top-content">
                 <div class="header_left_box">
-                    <img class="logo" src="{{ url('/assets/images/logo.webp') }}" alt="Website Logo" />
+                    <img class="logo" src="{{ url('/assets/images/logo.png') }}" alt="Website Logo" />
                 </div>
                 {{-- @can('view-dashboard-sidebar') --}}
                     <li class="">
@@ -23,7 +23,7 @@
                 {{-- @endcan --}}
                 <div id="main">
                     <div class="accordion" id="faq">
-                        @can('view-team-details-section-sidebar')
+                        {{-- @can('view-team-details-section-sidebar')
                             <div class="car">
                                 <li class="card_drop" id="ReportTab">
                                     <a class="btn btn-header-link" data-toggle="collapse" data-target="#Reports"
@@ -224,8 +224,8 @@
                                     </div>
                                 </div>
                             </div>
-                        @endcan
-                        @can('view-settings-section-sidebar')
+                        @endcan --}}
+                        {{-- @can('view-settings-section-sidebar')
                             <div class="car">
                                 <li class="card_drop" id="Settings3">
                                     <a href="#" class="btn btn-header-link" data-toggle="collapse"
@@ -276,7 +276,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endcan
+                        @endcan --}}
                     </div>
                 </div>
             </div>

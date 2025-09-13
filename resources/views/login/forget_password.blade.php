@@ -23,7 +23,7 @@
                 <div class="col-md-12 col-lg-6 p-0">
                     <div class="login_left_box">
                         <div class="login-img">
-                            <img src="{{ url('/assets/images/login-image.png') }}" alt="Login banner image">
+                            <img src="{{ url('/assets/images/logo.png') }}" alt="Login banner image">
                         </div>
                     </div>
                 </div>

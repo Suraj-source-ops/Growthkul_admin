@@ -50,7 +50,7 @@ body {
 
 .logo {
     height: auto;
-    width: 100%;
+    width: 80%;
 }
 
 button.header_drop_btn.dropdown-toggle {
@@ -209,8 +209,8 @@ button.header_drop_btn.dropdown-toggle img {
     height: 100%;
 }
 .login_left_box img {
-    width: 325px;
-    height: 334px;
+    width: 250px;
+    height: 45px;
 }
 
 .login_right_box .logo {
@@ -652,7 +652,7 @@ a:-webkit-any-link:focus-visible {
 .dash-content-box {
     background-color: #fff;
     padding: 12px 20px;
-    border-bottom: 4px solid #ba987d;
+    border-bottom: 4px solid #5646c4;
     border-radius: 10px;
     margin-bottom: 20px;
 }

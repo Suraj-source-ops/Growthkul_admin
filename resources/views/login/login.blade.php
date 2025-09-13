@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}" />
-    <link rel="shortcut icon" type="image/png" href="{{ url('/assets/images/fav-Icon.png') }}" />
+    <link rel="shortcut icon" type="image/png" href="" />
     <title>Growthkul</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
@@ -23,7 +23,7 @@
                 <div class="col-md-12 col-lg-6 p-0">
                     <div class="login_left_box">
                         <div class="login-img">
-                            <img src="{{ url('/assets/images/login-image.png') }}" alt="Login banner image">
+                            <img src="{{ url('/assets/images/logo.png') }}" alt="Login banner image">
                         </div>
                     </div>
                 </div>
