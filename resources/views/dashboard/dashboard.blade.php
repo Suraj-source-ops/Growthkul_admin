@@ -17,49 +17,56 @@
             </div>
             <div class="number-box">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="dash-content-box">
-                            <div class="clients-box">
-                                <a href="{{ route('services.list') }}">
-                                    <h3>{{ $services }}</h3>
-                                </a>
+                    @can('view-total-services-dashboard')
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="dash-content-box">
+                                <div class="clients-box">
+                                    <a href="{{ route('services.list') }}">
+                                        <h3>{{ $services }}</h3>
+                                    </a>
+                                </div>
+                                <p>Total Services</p>
                             </div>
-                            <p>Total Services</p>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="dash-content-box">
-                            <div class="clients-box">
-                                <a href="{{ route('projects') }}">
-                                    <h3>{{ $projects }}</h3>
-                                </a>
+                    @endcan
+                    @can('view-total-projects-dashboard')
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="dash-content-box">
+                                <div class="clients-box">
+                                    <a href="{{ route('projects') }}">
+                                        <h3>{{ $projects }}</h3>
+                                    </a>
+                                </div>
+                                <p>Total Projects</p>
                             </div>
-                            <p>Total Projects</p>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="dash-content-box">
-                            <div class="clients-box">
-                                <a href="{{ route('blogs') }}">
-                                    <h3>{{ $blogs }}</h3>
-                                </a>
+                    @endcan
+                    @can('view-total-blogs-dashboard')
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="dash-content-box">
+                                <div class="clients-box">
+                                    <a href="{{ route('blogs') }}">
+                                        <h3>{{ $blogs }}</h3>
+                                    </a>
+                                </div>
+                                <p>Total Blogs</p>
                             </div>
-                            <p>Total Blogs</p>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="dash-content-box">
-                            <div class="clients-box">
-                                <a href="{{ route('enquiry') }}">
-                                    <h3>{{ $enquiries }}</h3>
-                                </a>
+                    @endcan
+                    @can('view-total-queries-dashboard')
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="dash-content-box">
+                                <div class="clients-box">
+                                    <a href="{{ route('enquiry') }}">
+                                        <h3>{{ $enquiries }}</h3>
+                                    </a>
+                                </div>
+                                <p>Total Queries</p>
                             </div>
-                            <p>Total Queries</p>
                         </div>
-                    </div>
+                    @endcan
+
                 </div>
             </div>
         </div>
-        @push('scripts')
-        @endpush
     @endsection
