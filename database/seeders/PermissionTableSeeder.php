@@ -19,23 +19,18 @@ class PermissionTableSeeder extends Seeder
             'view-team-details-section-sidebar',
             'view-team-sidebar',
             'view-members-sidebar',
-            'view-client-details-sidebar',
-            'view-products-details-section-sidebar',
-            'view-products-sidebar',
-            'view-product-tracking-sidebar',
-            'view-tasks-section-sidebar',
-            'view-all-tasks-sidebar',
-            'view-my-tasks-sidebar',
+            'view-service-section-sidebar',
+            'view-service-details-sidebar',
+            'view-enquiry-section-sidebar',
+            'view-project-section-sidebar',
+            'view-blogs-section-sidebar',
             'view-role-and-permission-section-sidebar',
-            'view-settings-section-sidebar',
-            'view-graphic-product-type-sidebar',
-            'view-master-product-track-sidebar',
             #dashboard permissions
-            'view-total-clients-dashboard',
-            'view-total-products-dashboard',
-            'view-pending-products-dashboard',
-            'view-complete-products-dashboard',
-            #Team 
+            'view-total-services-dashboard',
+            'view-total-projects-dashboard',
+            'view-total-blogs-dashboard',
+            'view-total-queries-dashboard',
+            #Team
             'team-lists-teams',
             'add-team-button-teams',
             'delete-team-button-teams',
@@ -45,38 +40,31 @@ class PermissionTableSeeder extends Seeder
             'edit-member-button-members',
             'update-member-button-members',
             'change-status-button-members',
-            #Clients
-            'client-lists-clients',
-            'add-client-button-clients',
-            'change-status-button-clients',
-            'edit-client-button-clients',
-            'update-client-button-clients',
-            'delete-client-product-clients',
-            'view-client-detail-button-clients',
-            'add-client-product-button-clients',
-            #products
-            'product-lists-products',
-            'change-product-due-date-products',
-            'assign-product-dropdown-products',
-            'change-product-status-dropdown-products',
-            'edit-product-button-products',
-            'update-product-button-products',
-            'view-tracking-products',
-            'view-product-comment-button-products',
-            #product tasks
-            'task-lists-tasks',
-            'view-task-comment-button-tasks',
+            #Services
+            'service-lists-services',
+            'add-service-button-services',
+            'delete-service-button-services',
+            #Enquiry
+            'enquiry-lists-enquiries',
+            #projects
+            'project-lists-projects',
+            'add-project-button-projects',
+            'edit-project-button-projects',
+            'update-project-button-projects',
+            'delete-project-button-projects',
+            'change-status-button-projects',
+            #blogs
+            'blog-lists-blogs',
+            'add-blog-button-blogs',
+            'edit-blog-button-blogs',
+            'update-blog-button-blogs',
+            'delete-blog-button-blogs',
+            'change-status-button-blogs',
             #role
             'role-lists-roles',
             'add-role-button-roles',
             'edit-role-button-roles',
             'update-role-button-roles',
-            #Graphic Products
-            'add-graphic-types-button-graphictypes',
-            'delete-graphic-types-button-graphictypes',
-            #Master Stages
-            'add-master-stage-button-masterstage',
-            'delete-master-stage-button-masterstage',
         ];
 
         foreach ($permissions as $permission) {
