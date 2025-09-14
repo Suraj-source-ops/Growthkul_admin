@@ -51,8 +51,14 @@ class BlogController extends Controller
                             </label>';
                     })
                     ->editColumn('action', function ($row) {
-                        $btn = '<a href="' . route('edit.blog.details', ['id' => $row->id]) . '" class="btn btn-info btn-sm" title="Edit Blog" style="margin-right: 5px;background: #5F4CDD;"><i class="fa fa-edit"></i></a>';
-                        $btn .= '<a href="' . route('delete.blog', ['id' => $row->id]) . '" class="btn btn-danger btn-sm deleteBlog" title="Delete Blog" style="background: #FF4A4A;"><i class="fa fa-trash"></i></a>';
+                        if (auth()->user()->can('edit-blog-button-blogs')) {
+                            $btn = '<a href="' . route('edit.blog.details', ['id' => $row->id]) . '" class="btn btn-info btn-sm" title="Edit Blog" style="margin-right: 5px;background: #5F4CDD;"><i class="fa fa-edit"></i></a>';
+                        }else {
+                            $btn = '';
+                        }
+                        if (auth()->user()->can('delete-blog-button-blogs')) {
+                            $btn .= '<a href="' . route('delete.blog', ['id' => $row->id]) . '" class="btn btn-danger btn-sm deleteBlog" title="Delete Blog" style="background: #FF4A4A;"><i class="fa fa-trash"></i></a>';
+                        }
                         return $btn;
                     })
                     ->rawColumns(['image', 'created_at', 'action', 'status'])

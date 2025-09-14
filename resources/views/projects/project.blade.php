@@ -29,8 +29,8 @@
                                         @endcan
                                         <th>URL</th>
                                         @if (auth()->user()->can('edit-project-button-projects') || auth()->user()->can('delete-project-button-projects'))
-                                        @endif
                                         <th>Action</th>
+                                        @endif
                                     </tr>
                                 </thead>
                             </table>
@@ -103,7 +103,8 @@
                                 orderable: false,
                                 searchable: false
                             },
-                        @endcan {
+                        @endcan 
+                        {
                             data: 'project_url',
                             name: 'project_url',
                             orderable: false,

@@ -20,8 +20,8 @@ class ProjectController extends Controller
     public function __construct()
     {
         $this->middleware('permission:project-lists-projects|add-project-button-projects|edit-project-button-projects|update-project-button-projects|delete-project-button-projects|change-status-button-projects', ['only' => ['projectLists']]);
-        $this->middleware('permission:add-project-button-projects', ['only' => ['addProject','storeProject']]);
-        $this->middleware('permission:edit-project-button-projects|update-project-button-projects', ['only' => ['editProjectDetails','updateProjectDetails']]);
+        $this->middleware('permission:add-project-button-projects', ['only' => ['addProject', 'storeProject']]);
+        $this->middleware('permission:edit-project-button-projects|update-project-button-projects', ['only' => ['editProjectDetails', 'updateProjectDetails']]);
         $this->middleware('permission:delete-project-button-projects', ['only' => ['deleteProject']]);
         $this->middleware('permission:change-status-button-projects', ['only' => ['activeOrInactiveProject']]);
     }
@@ -50,8 +50,14 @@ class ProjectController extends Controller
                             </label>';
                     })
                     ->editColumn('action', function ($row) {
-                        $btn = '<a href="' . route('edit.project.details', ['id' => $row->id]) . '" class="btn btn-info btn-sm" title="Edit Project" style="margin-right: 5px;background: #5F4CDD;"><i class="fa fa-edit"></i></a>';
-                        $btn .= '<a href="' . route('delete.project', ['id' => $row->id]) . '" class="btn btn-danger btn-sm deleteProject" title="Delete Project" style="background: #FF4A4A;"><i class="fa fa-trash"></i></a>';
+                        if (auth()->user()->can('edit-project-button-projects')) {
+                            $btn = '<a href="' . route('edit.project.details', ['id' => $row->id]) . '" class="btn btn-info btn-sm" title="Edit Project" style="margin-right: 5px;background: #5F4CDD;"><i class="fa fa-edit"></i></a>';
+                        } else {
+                            $btn = '';
+                        }
+                        if (auth()->user()->can('delete-project-button-projects')) {
+                            $btn .= '<a href="' . route('delete.project', ['id' => $row->id]) . '" class="btn btn-danger btn-sm deleteProject" title="Delete Project" style="background: #FF4A4A;"><i class="fa fa-trash"></i></a>';
+                        }
                         return $btn;
                     })
                     ->rawColumns(['image', 'created_at', 'action', 'status'])
