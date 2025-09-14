@@ -11,10 +11,12 @@
                         <div class="head-box">
                             <h1>Services</h1>
                         </div>
+                        @can('add-service-button-services')
                         <div class="add-members-btn-box">
                             <button data-toggle="modal" data-target="#serviceModal" class="comman-btn">Add
                                 Services</button>
                         </div>
+                        @endcan
                     </div>
                     <div class="main-table">
                         <div class="">
@@ -23,7 +25,9 @@
                                     <tr>
                                         <th style="width:10%" scope="col">S. No.</th>
                                         <th style="width:85%" scope="col">Service Name</th>
+                                        @can('delete-service-button-services')
                                         <th style="width:8%" scope="col">Action</th>
+                                        @endcan
                                     </tr>
                                 </thead>
                             </table>
@@ -99,12 +103,14 @@
                         data: 'name',
                         name: 'name'
                     },
+                    @can('delete-service-button-services')
                     {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false
                     }
+                    @endcan
                 ],
             });
         });

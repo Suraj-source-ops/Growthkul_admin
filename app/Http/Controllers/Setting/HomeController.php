@@ -15,6 +15,13 @@ use Yajra\DataTables\Facades\DataTables;
 
 class HomeController extends Controller
 {
+    #call permissions
+    public function __construct()
+    {
+        $this->middleware('permission:delete-service-button-services|add-service-button-services|service-lists-services', ['only' => ['serviceList']]);
+        $this->middleware('permission:add-service-button-services', ['only' => ['addServiceName']]);
+        $this->middleware('permission:delete-service-button-servicess', ['only' => ['deleteServiceName']]);
+    }
 
     #services add and list view
     public function serviceList(Request $request)

@@ -13,7 +13,8 @@
                             <h1>Add Project</h1>
                         </div>
                         <div class="content-box">
-                            <form action="{{ route('store.project') }}" method="POST" autocomplete="off" enctype="multipart/form-data">
+                            <form action="{{ route('store.project') }}" method="POST" autocomplete="off"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-6">
@@ -50,11 +51,14 @@
                                             <textarea name="project_description" placeholder="Enter Project Description">{{ old('project_description') }}</textarea>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="add-member-btn">
-                                            <button type="submit">Create</button>
+                                    @can('add-project-button-projects')
+                                        <div class="col-md-12">
+                                            <div class="add-member-btn">
+                                                <button type="submit">Create</button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endcan
+
                                 </div>
                             </form>
                         </div>

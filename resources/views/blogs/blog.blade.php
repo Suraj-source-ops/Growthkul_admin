@@ -23,134 +23,142 @@
                                         <th>Blog Image</th>
                                         <th>Blog Title</th>
                                         <th>Published Date</th>
-                                        <th>Active/Inactive</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
+                                        @can('change-status-button-blogs')
+                                            <th>Active/Inactive</th>
+                                        @endcan
+                                        @if (auth()->user()->can('edit-blog-button-blogs') || auth()->user()->can('delete-blog-button-blogs'))
+                                            <th>Action</th>
+                                        @endcan
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    @push('scripts')
-        <script>
-            $(document).ready(function() {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+</div>
+</div>
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-                $('#blog-table').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    bFilter: true,
-                    pageLength: 10,
-                    lengthMenu: [
-                        [5, 10, 25, 50],
-                        [5, 10, 25, 50]
-                    ],
-                    responsive: true,
-                    scrollX: true,
-                    ajax: {
-                        url: "{{ route('blogs') }}",
-                        type: "POST",
+            $('#blog-table').DataTable({
+                processing: true,
+                serverSide: true,
+                bFilter: true,
+                pageLength: 10,
+                lengthMenu: [
+                    [5, 10, 25, 50],
+                    [5, 10, 25, 50]
+                ],
+                responsive: true,
+                scrollX: true,
+                ajax: {
+                    url: "{{ route('blogs') }}",
+                    type: "POST",
+                },
+                language: {
+                    paginate: {
+                        previous: '<i class="fas fa-angle-left"></i>',
+                        next: '<i class="fas fa-angle-right"></i>'
+                    }
+                },
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false
                     },
-                    language: {
-                        paginate: {
-                            previous: '<i class="fas fa-angle-left"></i>',
-                            next: '<i class="fas fa-angle-right"></i>'
-                        }
+                    {
+                        data: 'author',
+                        name: 'author',
+                        orderable: false,
+                        searchable: false
                     },
-                    columns: [{
-                            data: 'DT_RowIndex',
-                            name: 'DT_RowIndex',
-                            orderable: false,
-                            searchable: false
-                        },
-                        {
-                            data: 'author',
-                            name: 'author',
-                            orderable: false,
-                            searchable: false
-                        },
-                        {
-                            data: 'image',
-                            name: 'image',
-                            searchable: false,
-                            orderable: false
-                        },
-                        {
-                            data: 'title',
-                            name: 'title',
-                            orderable: false,
-                            searchable: true
-                        },
-                        {
-                            data: 'created_at',
-                            name: 'created_at',
-                            orderable: false,
-                            searchable: false
-                        },
+                    {
+                        data: 'image',
+                        name: 'image',
+                        searchable: false,
+                        orderable: false
+                    },
+                    {
+                        data: 'title',
+                        name: 'title',
+                        orderable: false,
+                        searchable: true
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at',
+                        orderable: false,
+                        searchable: false
+                    },
+                    @can('change-status-button-blogs')
                         {
                             data: 'status',
                             name: 'status',
                             orderable: false,
                             searchable: false
                         },
+                    @endcan
+                    @if (auth()->user()->can('edit-blog-button-blogs') || auth()->user()->can('delete-blog-button-blogs'))
                         {
                             data: 'action',
                             name: 'action',
                             orderable: false,
                             searchable: false
                         }
-                    ],
-                    initComplete: function() {
-                        let $dataTableFilter = $('#blog-table_filter');
-                        let $input = $dataTableFilter.find('input');
+                    @endcan
+                ],
+                initComplete: function() {
+                    let $dataTableFilter = $('#blog-table_filter');
+                    let $input = $dataTableFilter.find('input');
 
-                        $input
-                            .attr('placeholder', 'Search blogs...')
-                            .addClass('my-search-box')
-                            .wrap(
-                                '<div class="datatable-search-wrapper position-relative d-inline-block"></div>'
-                            );
+                    $input
+                        .attr('placeholder', 'Search blogs...')
+                        .addClass('my-search-box')
+                        .wrap(
+                            '<div class="datatable-search-wrapper position-relative d-inline-block"></div>'
+                        );
 
-                        $dataTableFilter.find('.datatable-search-wrapper').prepend(`
+                    $dataTableFilter.find('.datatable-search-wrapper').prepend(`
                             <span class="datatable-search-icon">
                                 <img class="search-imgs" src="{{ asset('/assets/images/search-icon.svg') }}" alt="search-icon" style="width:16px;height:16px;">
                             </span>
                         `);
-                    },
-                });
+                },
             });
+        });
 
 
-            // active/inactive member
-            function activeOrInactiveBlog(id) {
-                $.ajax({
-                    url: base_url + `/blogs-status/${id}`,
-                    type: 'GET',
-                    data: {
-                        _token: "{{ csrf_token() }}"
-                    },
-                    success: function(response) {
-                        if (!response.status) {
-                            toastr.error(response.message);
-                            $('#blog-table').DataTable().ajax.reload();
-                        } else {
-                            $('#blog-table').DataTable().ajax.reload();
-                            toastr.success(response.message);
-                        }
-                    },
-                    error: function(xhr) {
-                        toastr.error('Error while updating blog status.');
+        // active/inactive member
+        function activeOrInactiveBlog(id) {
+            $.ajax({
+                url: base_url + `/blogs-status/${id}`,
+                type: 'GET',
+                data: {
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    if (!response.status) {
+                        toastr.error(response.message);
+                        $('#blog-table').DataTable().ajax.reload();
+                    } else {
+                        $('#blog-table').DataTable().ajax.reload();
+                        toastr.success(response.message);
                     }
-                });
-            }
-        </script>
-    @endpush
+                },
+                error: function(xhr) {
+                    toastr.error('Error while updating blog status.');
+                }
+            });
+        }
+    </script>
+@endpush
 @endsection

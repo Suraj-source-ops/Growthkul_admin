@@ -16,6 +16,15 @@ use Yajra\DataTables\Facades\DataTables;
 
 class ProjectController extends Controller
 {
+    #call permissions
+    public function __construct()
+    {
+        $this->middleware('permission:project-lists-projects|add-project-button-projects|edit-project-button-projects|update-project-button-projects|delete-project-button-projects|change-status-button-projects', ['only' => ['projectLists']]);
+        $this->middleware('permission:add-project-button-projects', ['only' => ['addProject','storeProject']]);
+        $this->middleware('permission:edit-project-button-projects|update-project-button-projects', ['only' => ['editProjectDetails','updateProjectDetails']]);
+        $this->middleware('permission:delete-project-button-projects', ['only' => ['deleteProject']]);
+        $this->middleware('permission:change-status-button-projects', ['only' => ['activeOrInactiveProject']]);
+    }
     #project lists datatable
     public function projectLists(Request $request)
     {

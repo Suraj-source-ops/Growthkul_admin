@@ -82,11 +82,13 @@
                                     <div class="col-md-12 mb-5">
                                         <textarea id="summernote" name="content"></textarea>
                                     </div>
+                                    @can('add-blog-button-blogs')
                                     <div class="col-md-12">
                                         <div class="add-member-btn">
                                             <button type="submit">Create</button>
                                         </div>
                                     </div>
+                                    @endcan
                                 </div>
                             </form>
                         </div>

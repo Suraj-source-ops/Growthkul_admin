@@ -10,9 +10,11 @@
                             <div class="head-box">
                                 <h1>Projects</h1>
                             </div>
-                            <div class="add-members-btn-box">
-                                <a href="{{ route('add.project') }}" class="comman-btn">Add Project</a>
-                            </div>
+                            @can('add-project-button-projects')
+                                <div class="add-members-btn-box">
+                                    <a href="{{ route('add.project') }}" class="comman-btn">Add Project</a>
+                                </div>
+                            @endcan
                         </div>
                         <div class="main-table">
                             <table class="table table-bordered table-custom-css-box" id="project-table">
@@ -22,8 +24,12 @@
                                         <th>Project Name</th>
                                         <th>Project Title</th>
                                         <th>Project Image</th>
-                                        <th>Active/Inactive</th>
+                                        @can('change-status-button-projects')
+                                            <th>Active/Inactive</th>
+                                        @endcan
                                         <th>URL</th>
+                                        @if (auth()->user()->can('edit-project-button-projects') || auth()->user()->can('delete-project-button-projects'))
+                                        @endif
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -77,7 +83,7 @@
                             orderable: false,
                             searchable: true
                         },
-                        
+
                         {
                             data: 'title',
                             name: 'title',
@@ -90,24 +96,27 @@
                             searchable: false,
                             orderable: false
                         },
-                        {
-                            data: 'status',
-                            name: 'status',
-                            orderable: false,
-                            searchable: false
-                        },
-                        {
+                        @can('change-status-button-projects')
+                            {
+                                data: 'status',
+                                name: 'status',
+                                orderable: false,
+                                searchable: false
+                            },
+                        @endcan {
                             data: 'project_url',
                             name: 'project_url',
                             orderable: false,
                             searchable: false
                         },
-                        {
-                            data: 'action',
-                            name: 'action',
-                            orderable: false,
-                            searchable: false
-                        }
+                        @if (auth()->user()->can('edit-project-button-projects') || auth()->user()->can('delete-project-button-projects'))
+                            {
+                                data: 'action',
+                                name: 'action',
+                                orderable: false,
+                                searchable: false
+                            }
+                        @endcan
                     ],
                     initComplete: function() {
                         let $dataTableFilter = $('#project-table_filter');

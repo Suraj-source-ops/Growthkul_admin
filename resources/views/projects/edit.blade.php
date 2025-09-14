@@ -57,11 +57,13 @@
                                             <textarea name="project_description" placeholder="Enter Project Description">{{ old('project_description', $projectDetails->description) }}</textarea>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="add-member-btn">
-                                            <button type="submit">Update</button>
+                                    @can('update-project-button-projects')
+                                        <div class="col-md-12">
+                                            <div class="add-member-btn">
+                                                <button type="submit">Update</button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endcan
                                 </div>
                             </form>
                         </div>
@@ -83,7 +85,8 @@
                 </div>
                 <div class="modal-body text-center">
                     @if ($projectDetails->projectImage)
-                        <img src="{{ asset($projectDetails->projectImage->file_path) }}" alt="Project Image" class="img-fluid">
+                        <img src="{{ asset($projectDetails->projectImage->file_path) }}" alt="Project Image"
+                            class="img-fluid">
                     @else
                         <p>No image available.</p>
                     @endif

@@ -14,7 +14,7 @@ class PermissionTableSeeder extends Seeder
     public function run(): void
     {
         $permissions = [
-            #sidebar permissions
+            #sidebar permissions - done
             'view-dashboard-sidebar',
             'view-team-details-section-sidebar',
             'view-team-sidebar',
@@ -25,28 +25,28 @@ class PermissionTableSeeder extends Seeder
             'view-project-section-sidebar',
             'view-blogs-section-sidebar',
             'view-role-and-permission-section-sidebar',
-            #dashboard permissions
+            #dashboard permissions -done
             'view-total-services-dashboard',
             'view-total-projects-dashboard',
             'view-total-blogs-dashboard',
             'view-total-queries-dashboard',
-            #Team
+            #Team -done
             'team-lists-teams',
             'add-team-button-teams',
             'delete-team-button-teams',
-            #Members
+            #Members -done
             'member-lists-members',
             'add-member-button-members',
             'edit-member-button-members',
             'update-member-button-members',
             'change-status-button-members',
-            #Services
+            #Services - done
             'service-lists-services',
             'add-service-button-services',
             'delete-service-button-services',
-            #Enquiry
+            #Enquiry -done
             'enquiry-lists-enquiries',
-            #projects
+            #projects - done
             'project-lists-projects',
             'add-project-button-projects',
             'edit-project-button-projects',

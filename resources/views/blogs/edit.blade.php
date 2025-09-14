@@ -63,7 +63,8 @@
                                         <div class="input_box">
                                             <label>Meta Description</label>
                                             <input type="text" name="meta_description"
-                                                placeholder="Enter Meta Description" value="{{ old('meta_description', $blogDetails->meta_description) }}">
+                                                placeholder="Enter Meta Description"
+                                                value="{{ old('meta_description', $blogDetails->meta_description) }}">
                                         </div>
                                     </div>
 
@@ -73,10 +74,12 @@
                                             <select name="social_media_type" id="" class="select-boxes">
                                                 <option value="">Select</option>
                                                 <option value="linkedin"
-                                                    {{ old('social_media_type', $blogDetails->social_media_type) == 'linkedin' ? 'selected' : '' }}>LinkedIn
+                                                    {{ old('social_media_type', $blogDetails->social_media_type) == 'linkedin' ? 'selected' : '' }}>
+                                                    LinkedIn
                                                 </option>
                                                 <option value="x"
-                                                    {{ old('social_media_type', $blogDetails->social_media_type) == 'x' ? 'selected' : '' }}>X
+                                                    {{ old('social_media_type', $blogDetails->social_media_type) == 'x' ? 'selected' : '' }}>
+                                                    X
                                                 </option>
                                             </select>
                                         </div>
@@ -91,11 +94,13 @@
                                     <div class="col-md-12 mb-5">
                                         <textarea id="summernote" name="content"> {{ old('content', $blogDetails->content) }}</textarea>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="add-member-btn">
-                                            <button type="submit">Update</button>
+                                    @can('update-blog-button-blogs')
+                                        <div class="col-md-12">
+                                            <div class="add-member-btn">
+                                                <button type="submit">Update</button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endcan
                                 </div>
                             </form>
                         </div>

@@ -11,14 +11,19 @@ use Yajra\DataTables\Facades\DataTables;
 
 class EnquiryController extends Controller
 {
-   #list enquiry
+    #call permissions
+    public function __construct()
+    {
+        $this->middleware('permission:enquiry-lists-enquiries', ['only' => ['enquiryList']]);
+    }
+    #list enquiry
     public function enquiryList(Request $request)
     {
         try {
             if ($request->ajax()) {
                 $enquirylist = Enquiry::select('*')->orderBy('id', 'desc');
                 return DataTables::of($enquirylist)
-                ->editColumn('created_at', function ($row) {
+                    ->editColumn('created_at', function ($row) {
                         return date('d-m-Y H:i A', strtotime($row->created_at));
                     })
                     ->editColumn('is_subscribed', function ($row) {
@@ -34,8 +39,8 @@ class EnquiryController extends Controller
             }
             return view('enquiry.enquiry');
         } catch (Exception $e) {
-            Log::channel('exception')->error('clients: ' . $e->getMessage());
-            return redirect()->back()->with(['message' => 'Failed to fetch clients', 'alert-type' => 'error']);
+            Log::channel('exception')->error('enquiryList: ' . $e->getMessage());
+            return redirect()->back()->with(['message' => 'Failed to fetch enquiry', 'alert-type' => 'error']);
         }
     }
 }

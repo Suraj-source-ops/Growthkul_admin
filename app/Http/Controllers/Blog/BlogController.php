@@ -16,6 +16,16 @@ use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
+    #call permissions
+    public function __construct()
+    {
+        $this->middleware('permission:blog-lists-blogs|add-blog-button-blogs|edit-blog-button-blogs|update-blog-button-blogs|delete-blog-button-blogs|change-status-button-blogs', ['only' => ['blogLists']]);
+        $this->middleware('permission:add-blog-button-blogs', ['only' => ['addBlog','storeBlog']]);
+        $this->middleware('permission:edit-blog-button-blogs|update-blog-button-blogs', ['only' => ['editBlogDetails','updateBlogDetails']]);
+        $this->middleware('permission:delete-blog-button-blogs', ['only' => ['deleteBlog']]);
+        $this->middleware('permission:change-status-button-blogs', ['only' => ['activeOrInactiveBlog']]);
+    }
+
     #blog lists datatable
     public function blogLists(Request $request)
     {
