@@ -116,10 +116,10 @@
                                 class="{{ Route::is('projects') || Route::is('add.project') || Route::is('edit.project.details') ? ' active' : '' }}">
                                 <span class="sidebar-border"></span>
                                 <img class="show_icon"
-                                    src="{{ url('/assets/images/sidebar-icon/client-hover.png') }}"
+                                    src="{{ url('/assets/images/sidebar-icon/role-hover.png') }}"
                                     alt="Dashboard-icon" />
                                 <img class="sidebar-hover-icon"
-                                    src="{{ url('/assets/images/sidebar-icon/client-hover.png') }}"
+                                    src="{{ url('/assets/images/sidebar-icon/role-hover.png') }}"
                                     alt="Dashboard-icon" />
                                 Projects
                             </a>
