@@ -147,14 +147,6 @@ class ProductController extends Controller
                 $newUsers = User::whereIn('id', $newlyAddedUserIds)->get();
                 foreach ($newUsers as $user) {
                     $notes = 'You have been assigned a new product: ' . $product->product_code . ' by ' . Auth::user()->name . '. For more info please check your dashboard.';
-                    History::create([
-                        'product_id' => $product->id,
-                        'user_id' => Auth::user()->id,
-                        'action' => 'Product Assign',
-                        'changes' => null,
-                        'note' => $notes,
-                        'assign_to' => $user->id,
-                    ]);
                     Mail::to($user->email)->queue(new ProductAssignedMail($user, $product, Auth::user()->name, $notes));
                 }
             }
@@ -324,14 +316,6 @@ class ProductController extends Controller
                 $newUsers = User::where('id', $request->member_id)->get();
                 foreach ($newUsers as $user) {
                     $notes = 'You have been assigned a new product: ' . $product->product_code . ' by ' . Auth::user()->name . '. For more info please check your dashboard.';
-                    History::create([
-                        'product_id' => $product->id,
-                        'user_id' => Auth::user()->id,
-                        'action' => 'Product Assign',
-                        'changes' => null,
-                        'note' => $notes,
-                        'assign_to' => $user->id,
-                    ]);
                     Mail::to($user->email)->queue(new ProductAssignedMail($user, $product, Auth::user()->name, $notes));
                 }
             }

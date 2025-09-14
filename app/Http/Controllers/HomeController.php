@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
-use App\Models\Product;
-use Carbon\Carbon;
 use Exception;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Enquiry;
 use App\Models\Services;
@@ -14,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
-    public function dashboard(Request $request)
+    public function dashboard()
     {
         try {
             $totalServices = Services::count();

@@ -20,16 +20,13 @@ class DocumentController extends Controller
                 'file_id' => '',
                 'status_code' => 400
             ];
-            $s3fileuploadresponse = false;
             $CustomFilePath = '';
-            $disk = env('S3_UPLOAD_ENABLED') ? 's3' : 'customupload';
             foreach ($files as $key => $file) {
                 $docIdentifier = $file['docIdentifier'];
-                $productId = isset($file['product_id']) && $file['product_id'] != '' ? $file['product_id'] : '';
                 $file = $file['file'];
                 $fileName = $docIdentifier . '_' . $file->hashName();
                 $fileMimeType = $file->getMimeType();
-                $CustomFilePath = $file->storeAs('profile_pics', $fileName, 'customupload');
+                $CustomFilePath = $file->storeAs('uploaded_files', $fileName, 'customupload');
                 $createdFile = Files::create(
                     [
                         'user_id' => $userId,

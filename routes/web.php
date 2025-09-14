@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Documents\DocumentController;
 use App\Http\Controllers\Enquiry\EnquiryController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Product\DocumentController as ProductDocumentController
 use App\Http\Controllers\Product\HistoryController as ProductHistoryController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductTrackingController;
+use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\Roles\RolesController;
 use App\Http\Controllers\Setting\HomeController as SettingHomeController;
@@ -55,14 +57,25 @@ Route::group(['middleware' => 'auth'], function () {
     #enquiry
     Route::match(['get', 'post'], 'enquiry', [EnquiryController::class, 'enquiryList'])->name('enquiry');
 
-    #client
-    Route::match(['get', 'post'], 'clients', [ClientController::class, 'clients'])->name('clients');
-    Route::get('add-clients', [ClientController::class, 'addClients'])->name('add.client');
-    Route::get('client-details/{id}', [ClientController::class, 'clientsDetails'])->name('client.details');
-    Route::post('store-client', [ClientController::class, 'storeClient'])->name('store.client');
-    Route::get('edit-clients-details/{id}', [ClientController::class, 'editClientsDetails'])->name('edit.client.details');
-    Route::post('update-clients-details/{id}', [ClientController::class, 'updateClientsDetails'])->name('update.client.details');
-    Route::get('clients-status/{id}', [ClientController::class, 'activeOrInactiveClient'])->name('active.inactive.client');
+    #blogs
+    Route::match(['get', 'post'], 'blogs', [BlogController::class, 'blogLists'])->name('blogs');
+    Route::get('add-blogs', [BlogController::class, 'addBlog'])->name('add.blog');
+    Route::get('blog-details/{id}', [BlogController::class, 'blogDetails'])->name('blog.details');
+    Route::post('store-blog', [BlogController::class, 'storeBlog'])->name('store.blog');
+    Route::get('edit-blogs-details/{id}', [BlogController::class, 'editBlogDetails'])->name('edit.blog.details');
+    Route::post('update-blogs-details/{id}', [BlogController::class, 'updateBlogDetails'])->name('update.blog.details');
+    Route::get('delete-blog/{id}', [BlogController::class, 'deleteBlog'])->name('delete.blog');
+    Route::get('blogs-status/{id}', [BlogController::class, 'activeOrInactiveBlog'])->name('active.inactive.blog');
+
+    #projects
+    Route::match(['get', 'post'], 'projects', [ProjectController::class, 'projectLists'])->name('projects');
+    Route::get('add-projects', [ProjectController::class, 'addProject'])->name('add.project');
+    Route::get('project-details/{id}', [ProjectController::class, 'projectDetails'])->name('project.details');
+    Route::post('store-project', [ProjectController::class, 'storeProject'])->name('store.project');
+    Route::get('edit-projects-details/{id}', [ProjectController::class, 'editProjectDetails'])->name('edit.project.details');
+    Route::post('update-projects-details/{id}', [ProjectController::class, 'updateProjectDetails'])->name('update.project.details');
+    Route::get('delete-project/{id}', [ProjectController::class, 'deleteProject'])->name('delete.project');
+    Route::get('projects-status/{id}', [ProjectController::class, 'activeOrInactiveProject'])->name('active.inactive.project');
 
     #setting
     #Services

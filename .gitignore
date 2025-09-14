@@ -24,5 +24,6 @@ Homestead.yaml
 Thumbs.db
 /public/product_documents/*
 /public/profile_pics/*
+/public/uploaded_files/*
 
 
