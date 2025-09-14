@@ -30,21 +30,21 @@
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="dash-content-box">
                             <div class="clients-box">
-                                <a href="">
-                                    <h3>44</h3>
+                                <a href="{{ route('projects') }}">
+                                    <h3>{{ $projects }}</h3>
                                 </a>
                             </div>
-                            <p>Total Blogs</p>
+                            <p>Total Projects</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="dash-content-box">
                             <div class="clients-box">
-                                <a href="">
-                                    <h3>566</h3>
+                                <a href="{{ route('blogs') }}">
+                                    <h3>{{ $blogs }}</h3>
                                 </a>
                             </div>
-                            <p>Total Projects</p>
+                            <p>Total Blogs</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6">

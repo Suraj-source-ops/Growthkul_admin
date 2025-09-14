@@ -72,11 +72,9 @@ class PermissionTableSeeder extends Seeder
             'edit-role-button-roles',
             'update-role-button-roles',
             #Graphic Products
-            // 'graphic-type-lists-graphictypes',
             'add-graphic-types-button-graphictypes',
             'delete-graphic-types-button-graphictypes',
             #Master Stages
-            // 'master-stage-lists-masterstage',
             'add-master-stage-button-masterstage',
             'delete-master-stage-button-masterstage',
         ];
