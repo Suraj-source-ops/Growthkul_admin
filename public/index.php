@@ -1,4 +1,7 @@
 <?php
+echo phpinfo();
+die;
+
 
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
