@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Setting;
 
 use App\Http\Controllers\Controller;
-use App\Models\services;
+use App\Models\Services;
 use App\Models\MasterProductStages;
 use Exception;
 use Illuminate\Http\Request;
