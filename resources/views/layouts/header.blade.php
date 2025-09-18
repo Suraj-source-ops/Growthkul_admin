@@ -22,7 +22,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
     <script>
-        var base_url = '{{ url('/') }}';
+        var base_url = '{{ url('/admin') }}';
         var csrf_token = "{{ csrf_token() }}";
     </script>
 </head>

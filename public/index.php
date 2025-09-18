@@ -1,6 +1,6 @@
 <?php
-echo phpinfo();
-die;
+//echo phpinfo();
+//die;
 
 
 use Illuminate\Foundation\Application;

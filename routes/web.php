@@ -18,6 +18,8 @@ use App\Http\Controllers\Setting\HomeController as SettingHomeController;
 use App\Http\Controllers\Task\TaskController;
 use Illuminate\Support\Facades\Route;
 
+
+Route::prefix('admin')->group(function () {
 #Login
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::post('validate-user', [LoginController::class, 'validateUser'])->name('validate.user');
@@ -86,4 +88,5 @@ Route::group(['middleware' => 'auth'], function () {
     #error page permission 
     Route::get('errors', fn() => view('errors.permission-error-page'));
 });
-Route::get('product-change', fn() => view('Mail.product-change-notification-template'));
+//Route::get('product-change', fn() => view('Mail.product-change-notification-template'));
+});
